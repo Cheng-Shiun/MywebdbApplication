@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <style>
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #customers tr td, #customers tr th {
+            border: 1px solid #ddd;
+            padding: 8px;
+            width: 100px;
+        }
+
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+        #customers tr:hover {background-color: #ddd;}
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<h1>客戶總覽</h1>
+
+<table id="customers">
+    <tr>
+        <th style="text-align:center;">顧客編號</th>
+        <th style="text-align:center;">顧客名字</th>
+        <th style="text-align:center;">電話</th>
+        <th style="text-align:center;">城市</th>
+        <th style="text-align:center;">國家</th>
+        <th style="text-align:center;">信用額度</th>
+    </tr>
+    <tr th:each="cust : ${custs}">
+        <td th:text="${cust.getCustomerNumber()}"></td>
+        <td th:text="${cust.getCustomerName()}">Maria Anders</td>
+        <td th:text="${cust.getPhone()}">Germany</td>
+        <td th:text="${cust.getCity()}">Germany</td>
+        <td th:text="${cust.getCountry()}">Germany</td>
+        <td th:text="${cust.getCreditLimit()}">Germany</td>
+    </tr>
+</table>
+
+</body>
+</html>

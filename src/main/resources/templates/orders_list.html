@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <style>
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #customers tr td, #customers tr th {
+            border: 1px solid #ddd;
+            padding: 8px;
+            width: 100px;
+        }
+
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+        #customers tr:hover {background-color: #ddd;}
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<h1>訂單總覽</h1>
+
+<table id="customers">
+    <tr>
+        <th style="text-align:center;">訂單編號</th>
+        <th style="text-align:center;">訂單日期</th>
+        <th style="text-align:center;">希望到貨日</th>
+        <th style="text-align:center;">訂單說明</th>
+        <th style="text-align:center;">客戶編號</th>
+    </tr>
+    <tr th:each="order:${orders}">
+        <td th:text="${order.getOrderNumber()}"></td>
+        <td th:text="${order.getOrderDate()}">Maria Anders</td>
+        <td th:text="${order.getRequiredDate()}">Germany</td>
+        <td th:text="${order.getComments()}">Germany</td>
+        <td th:text="${order.getCustomerNumber()}">Germany</td>
+    </tr>
+</table>
+
+</body>
+</html>
